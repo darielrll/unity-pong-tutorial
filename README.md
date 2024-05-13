@@ -11,4 +11,4 @@ __Notes__:
 
 # Key things learned
  - create a new input for a second player
- - wip 
+ - add physics to a ball to be able to bouncing
