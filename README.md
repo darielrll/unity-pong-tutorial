@@ -12,3 +12,4 @@ __Notes__:
 # Key things learned
  - create a new input for a second player
  - add physics to a ball to be able to bouncing
+ - add key listener method to quit when key press
