@@ -9,6 +9,7 @@ public class Players : MonoBehaviour
     public Rigidbody2D rb;
     private float move;
     private Vector2 startPos;
+    private float moveSpeedTouchControl = 0.05f;
 
     void Start()
     {
@@ -19,10 +20,40 @@ public class Players : MonoBehaviour
     {
         if (player1)
         {
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (mousePosition.x > 1)
+                {
+                    if (mousePosition.y > 0.5)
+                    {
+                        transform.Translate(0, moveSpeedTouchControl, 0);
+                    }
+                    else if (mousePosition.y < 0.5)
+                    {
+                        transform.Translate(0, -moveSpeedTouchControl, 0);
+                    }
+                }
+            }
             move = Input.GetAxisRaw("Vertical");
         }
         else
         {
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (mousePosition.x < -1)
+                {
+                    if (mousePosition.y > 0.5)
+                    {
+                        transform.Translate(0, moveSpeedTouchControl, 0);
+                    }
+                    else if (mousePosition.y < 0.5)
+                    {
+                        transform.Translate(0, -moveSpeedTouchControl, 0);
+                    }
+                }
+            }
             move = Input.GetAxisRaw("Vertical2");
         }
 
